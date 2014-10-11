@@ -1,4 +1,306 @@
 <!DOCTYPE html>
 
+<head>
+    <style>
+        body {
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        }
+        .page1,
+        .page2,
+        .page3,
+        .page4,
+        .textBox,
+        .backgroundText,
+        .stars svg,
+        .clouds svg,
+        .trees svg,
+        .computer svg {
+            position: absolute;
+        }
+        .page1 {
+            background-color: #2c3e50;
+            color: #34495e;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+        .page2 {
+            background-color: #2980b9;
+            color: #3498db;
+            top: 100vh;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+        .page3 {
+            background-color: #2ecc71;
+            color: #27ae60;
+            top: 200vh;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+        .page4 {
+            background-color: #e74c3c;
+            color: #c0392b;
+            top: 300vh;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+        .textBox {
+            background-color: #ecf0f1;
+            color: #000000;
+            left: 39px;
+            top: 39px;
+            width: 294px;
+            min-height: 56px;
+            -webkit-box-shadow: 20px 20px 0px rgba(0, 0, 0, 0.25);
+            -moz-box-shadow: 20px 20px 0px rgba(0, 0, 0, 0.25);
+            box-shadow: 20px 20px 0px rgba(0, 0, 0, 0.25);
+        }
+        .textBox p {
+            font-size: 18px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 19px;
+            white-space: pre-line;
+        }
+        .backgroundText {
+            font-size: 20.8vh;
+            bottom: 15px;
+            left: 39px;
+            white-space: pre-line;
+            margin: 0;
+        }
+        .stars svg:first-child {
+            left: 59.4vw;
+            top: 50.5vh;
+            height: 20vh;
+            width: 20vh;
+        }
+        .stars svg:last-child {
+            left: 75vw;
+            top: 21.3vh;
+            height: 20vh;
+            width: 20vh;
+        }
+        .clouds svg.cloud1 {
+            left: 61.8vw;
+            top: 10.4vh;
+            width: 17.72vw;
+            height: 22.53vh;
+        }
+        .clouds svg.cloud2 {
+            left: 46.6vw;
+            top: 45.7vh;
+            width: 17.72vw;
+            height: 22.53vh;
+        }
+        .clouds .mountains {
+            right: 0;
+            bottom: 0;
+            width: 45.39vw;
+            height: 66.66vh;
+        }
+        .trees svg.tree1 {
+            top: 0.65vh;
+            right: 7.76vw;
+            width: 17.79vw;
+            height: 44.92vh;
+        }
+        .trees svg.tree2 {
+            top: 22.92vh;
+            right: 21.52vw;
+            width: 17.79vw;
+            height: 44.92vh;
+        }
+        .trees svg.tree3 {
+            top: 44.53vh;
+            right: 35.78vw;
+            width: 17.79vw;
+            height: 44.92vh;
+        }
+        .computer svg {
+            top: 9.8vh;
+            right: 9.2vw;
+            width: 43.92vw;
+            height: 66vh;
+        }
+    </style>
+</head>
+
 <body>
+
+    <section class="page1" data-page="1" data-page-title="Welcome.">
+        <span class="textBox">
+            <p>Hi.
+            I'm Andrew.
+            Nerd? I prefer the term 'intellectual olympian'.
+            But yes.</p>
+        </span>
+        <span class="stars">
+            <svg viewbox="0 0 145 145" preserveaspectratio="xMidYMid meet">
+                <filter id="filter">
+                    <feflood flood-opacity="0.25" flood-color="rgb(0,0,0)" result="flood" />
+                    <fecomposite in="flood" in2="SourceGraphic" operator="in" result="composite1" />
+                    <feoffset dx="10" dy="10" result="offset" />
+                    <fecomposite in="SourceGraphic" in2="offset" operator="over" result="composite2" />
+                </filter>
+                <path d="M73,0 77,69 145,73 77,77 73,145 69,77 0,73 69,69 z" fill="rgba(255,255,255,1)" style="filter:url(#filter)" />
+            </svg>
+            <svg viewbox="0 0 145 145" preserveaspectratio="xMidYMid meet">
+                <filter id="dropshadow">
+                    <feflood flood-opacity="0.25" flood-color="rgb(0,0,0)" result="flood" />
+                    <fecomposite in="flood" in2="SourceGraphic" operator="in" result="composite1" />
+                    <feoffset dx="10" dy="10" result="offset" />
+                    <fecomposite in="SourceGraphic" in2="offset" operator="over" result="composite2" />
+                </filter>
+                <path d="M73,0 77,69 145,73 77,77 73,145 69,77 0,73 69,69 z" fill="rgba(255,255,255,1)" style="filter:url(#dropshadow)" />
+            </svg>
+        </span>
+        <p class="backgroundText">Welcome.</p>
+    </section>
+    <section class="page2" data-page="2" data-page-title="About Me">
+        <span class="textBox">
+            <p>Well, what do you want to know?
+                I'm a Christian.
+                I love coding.
+                I like designing.
+                I love reading.
+                I enjoy working personally.
+                I also enjoy working on projects for others.
+                This website? Designed, coded, and presented by yours truly.</p>
+        </span>
+        <span class="clouds">
+            <svg viewbox="0 0 238 173" preserveaspectratio="xMidYMid meet" class="cloud1">
+                <filter id="dropshadow2">
+                    <feflood flood-opacity="0.25" flood-color="rgb(0,0,0)" result="flood" />
+                    <fecomposite in="flood" in2="SourceGraphic" operator="in" result="composite1" />
+                    <feoffset dx="10" dy="10" result="offset" />
+                    <fecomposite in="SourceGraphic" in2="offset" operator="over" result="composite2" />
+                </filter>
+                <path style="fill:#3498db;fill-opacity:1;stroke:none;filter:url(#dropshadow2)" d="m 44,164 139,0 c 43,-2 73,-62 14,-96 9,-71 -71,-86 -106,-44 -35,-7 -60,13 -57,44 -43,14 -48,94 10,96 z" />
+            </svg>
+            <svg viewbox="0 0 238 173" preserveaspectratio="xMidYMid meet" class="cloud2">
+                <filter id="dropshadow3">
+                    <feflood flood-opacity="0.25" flood-color="rgb(0,0,0)" result="flood" />
+                    <fecomposite in="flood" in2="SourceGraphic" operator="in" result="composite1" />
+                    <feoffset dx="10" dy="10" result="offset" />
+                    <fecomposite in="SourceGraphic" in2="offset" operator="over" result="composite2" />
+                </filter>
+                <path style="fill:#3498db;fill-opacity:1;stroke:none;filter:url(#dropshadow3)" d="m 44,164 139,0 c 43,-2 73,-62 14,-96 9,-71 -71,-86 -106,-44 -35,-7 -60,13 -57,44 -43,14 -48,94 10,96 z" />
+            </svg>
+            <svg width="620" height="512" viewbox="0 0 620 512" preserveaspectratio="xMaxYMax meet" class="mountains">
+  <defs>
+    <filter color-interpolation-filters="sRGB" id="drop3">
+      <feflood result="flood" flood-color="rgb(0,0,0)" flood-opacity="0.25" />
+      <fecomposite in2="SourceGraphic" operator="in" in="flood" result="composite1" />
+      <feoffset result="offset" dy="0" dx="3" />
+      <fecomposite in2="offset" operator="over" in="SourceGraphic" result="composite2" />
+    </filter>
+    <filter color-interpolation-filters="sRGB" id="drop5">
+      <feflood result="flood" flood-color="rgb(0,0,0)" flood-opacity="0.25" />
+      <fecomposite in2="SourceGraphic" operator="in" in="flood" result="composite1" />
+      <feoffset result="offset" dy="0" dx="5" />
+      <fecomposite in2="offset" operator="over" in="SourceGraphic" result="composite2" />
+    </filter>
+    <filter color-interpolation-filters="sRGB" id="drop2">
+      <feflood result="flood" flood-color="rgb(0,0,0)" flood-opacity="0.25" />
+      <fecomposite in2="SourceGraphic" operator="in" in="flood" result="composite1" />
+      <feoffset result="offset" dy="0" dx="2" />
+      <fecomposite in2="offset" operator="over" in="SourceGraphic" result="composite2" />
+    </filter>
+  </defs>
+  <g transform="translate(0,-500)">
+    <path d="M 617,756 617,750.66064 476,500 332,756 z" style="fill:#000000;fill-opacity:1;stroke:none;filter:url(#drop3)" />
+    <path d="M 620,756 476,500 188,1012 620,1012 z" style="fill:#3498db;fill-opacity:1;stroke:none" />
+    <path d="M 308,564 235.8125,669 374.84375,669 377.625,664 z" style="fill:#000000;fill-opacity:1;stroke:none;filter:url(#drop5)" />
+    <path d="M 381.125,669 379.92802,667.28125 379,669 235.8125,669 0,1012 618,1012 618,1009.1406 z" style="fill:#000000;fill-opacity:1;stroke:none;filter:url(#drop2)" />
+    <path d="M 620,1012 308,564 0,1012 z" style="fill:#3498db;fill-opacity:1;stroke:none" />
+    <path d="M 476,500 404,628 548,628 z" style="fill:#ffffff;fill-opacity:1;stroke:none" />
+    <path d="M 308,564 264,628 352.57228,628 z" style="fill:none;stroke:none" />
+    <path d="M 352.57228,628 308,564 264,628 z" style="fill:#ffffff;fill-opacity:1;stroke:none" />
+  </g>
+</svg>
+        </span>
+        <p class="backgroundText">About Me</p>
+    </section>
+    <section class="page3" data-page="3" data-page-title="Design">
+        <span class="textBox">
+            <p>I like elegant,
+                smooth,
+                flat,
+                and animated designs.
+                Like this one.
+                For me, designing isn't making new things.
+                It's combining inspiring things into something new. </p>
+        </span>
+        <span class="trees">
+            <svg viewbox="0 0 243 345" preserveaspectratio="xMidYMid meet" class="tree1">
+                <filter id="dropshadow7">
+                    <feflood flood-opacity="0.25" flood-color="rgb(0,0,0)" result="flood" />
+                    <fecomposite in="flood" in2="SourceGraphic" operator="in" result="composite1" />
+                    <feoffset dx="10" dy="10" result="offset" />
+                    <fecomposite in="SourceGraphic" in2="offset" operator="over" result="composite2" />
+                </filter>
+                <path style="fill:#27ae60;fill-rule:evenodd;stroke:none;filter:url(#dropshadow7)" d="M 91,216 c 2,2 9,26 13,27 1,-4 1,-31 2,-34 -5,3 -8,7 -15,7 z m 28,1 c 4,0 6,4 8,5 0,2 -3,8 -5,10 -3,-3 -3,-9 -3,-15 z m -35,118 49,0 c -18,-37 -18,-77 -2,-113 49,6 69,-19 70,-54 49,-35 39,-95 -25,-108 -1,-77 -111,-77 -121,-20 -50,-2 -70,43 -41,83 -34,50 11,105 67,97 19,38 24,78 3,115 z" />
+                <g transform="matrix(0.10621916,0,0,0.10621916,91.072019,51.629718)">
+                    <path d="m -374.42565,824.73498 c -13.9372,-26.30714 -1.76233,-57.57657 2.61729,-85.28687 8.97264,-36.13375 9.08299,-77.1165 33.63999,-107.20099 20.4349,-18.32292 50.23847,-15.42859 75.42096,-21.68616 12.82399,-1.70129 47.40958,-6.12096 17.37215,-14.26408 -24.23032,-11.64645 -56.48554,-24.59145 -59.5516,-55.34763 -1.24707,-44.60225 27.9752,-83.32749 27.17872,-127.97406 0.19659,-24.18316 16.16847,-52.64308 44.04649,-48.45293 35.89593,5.68567 53.75352,42.23299 69.27781,71.05946 22.36352,44.96 43.80642,94.08331 39.85368,145.39593 -0.94593,11.65348 -13.50104,49.87198 10.29294,28.01931 10.91736,-22.11946 23.585379,-50.01715 22.573176,-73.31834 -22.781916,-18.88186 29.615465,-27.75134 15.42767,-2.62084 -18.484572,15.03525 -19.129275,42.62405 -28.946696,63.39989 -9.46428,23.60512 14.403937,8.22847 17.958206,-5.04211 9.18337,-13.4285 20.314599,-26.64887 27.669425,-40.78959 -6.081293,-23.85916 34.823727,-17.60095 17.086027,2.6684 -22.034827,-3.38451 -30.410948,24.35395 -43.618768,39.54654 -13.0274,5.71651 -19.93412,55.06804 -0.35994,29.12528 45.555725,-44.92167 111.281821,-57.06401 172.414832,-64.32875 31.404408,-4.84126 71.319258,-2.3824 90.958218,26.32909 5.63781,13.86848 0.14914,28.05732 -0.27866,32.04276 -5.77078,8.92891 0.90864,-5.05599 -7.10169,8.39087 -19.16136,20.18749 -43.68339,35.305 -58.25749,59.7443 -17.022945,22.99583 -33.153992,55.10133 -65.79186,56.31215 -26.256737,0.20137 -48.8913658,-15.42787 -71.625951,-24.7312 9.837385,30.26682 28.8243388,57.40817 35.3663784,88.63947 -3.3511376,38.65629 -36.7279684,63.81992 -59.6434514,91.90282 -22.173131,22.89464 -44.045986,52.14643 -77.417056,57.45466 -23.17441,-6.11228 -25.3254,-35.58941 -30.79968,-55.25458 -10.84746,-57.39751 -5.91691,-116.98892 9.32622,-173.02348 -15.60655,6.56645 -16.49961,42.53958 -37.55116,45.63312 -20.02075,-16.13498 13.18155,-41.16971 13.33399,-60.19525 -21.10152,17.09433 -38.74733,39.21549 -60.51342,56.10371 -36.16841,32.0442 -80.53056,58.95849 -129.71951,61.96408 -2.23651,1.51545 -8.43763,-2.61082 -10.63724,-4.21498 z M -271.55694,382.0506 c 3.0473,-4.84115 -2.01041,5.91819 0,0 z m 55.00075,-14.27757 c 7.85742,2.72124 -1.82681,0.97926 0,0 z" style="fill:#ffffff;fill-opacity:1" />
+                </g>  
+            </svg>
+            <svg viewbox="0 0 243 345" preserveaspectratio="xMidYMid meet" class="tree2">
+                <filter id="dropFilter">
+                    <feflood flood-opacity="0.25" flood-color="rgb(0,0,0)" result="flood" />
+                    <fecomposite in="flood" in2="SourceGraphic" operator="in" result="composite1" />
+                    <feoffset dx="10" dy="10" result="offset" />
+                    <fecomposite in="SourceGraphic" in2="offset" operator="over" result="composite2" />
+                </filter>
+                <path style="fill:#27ae60;fill-rule:evenodd;stroke:none;filter:url(#dropFilter)" d="M 91,216 c 2,2 9,26 13,27 1,-4 1,-31 2,-34 -5,3 -8,7 -15,7 z m 28,1 c 4,0 6,4 8,5 0,2 -3,8 -5,10 -3,-3 -3,-9 -3,-15 z m -35,118 49,0 c -18,-37 -18,-77 -2,-113 49,6 69,-19 70,-54 49,-35 39,-95 -25,-108 -1,-77 -111,-77 -121,-20 -50,-2 -70,43 -41,83 -34,50 11,105 67,97 19,38 24,78 3,115 z" />
+            </svg>
+            <svg viewbox="0 0 243 345" preserveaspectratio="xMidYMid meet" class="tree3">
+                <filter id="dropshadow8">
+                    <feflood flood-opacity="0.25" flood-color="rgb(0,0,0)" result="flood" />
+                    <fecomposite in="flood" in2="SourceGraphic" operator="in" result="composite1" />
+                    <feoffset dx="10" dy="10" result="offset" />
+                    <fecomposite in="SourceGraphic" in2="offset" operator="over" result="composite2" />
+                </filter>
+                <path style="fill:#27ae60;fill-rule:evenodd;stroke:none;filter:url(#dropshadow8)" d="M 91,216 c 2,2 9,26 13,27 1,-4 1,-31 2,-34 -5,3 -8,7 -15,7 z m 28,1 c 4,0 6,4 8,5 0,2 -3,8 -5,10 -3,-3 -3,-9 -3,-15 z m -35,118 49,0 c -18,-37 -18,-77 -2,-113 49,6 69,-19 70,-54 49,-35 39,-95 -25,-108 -1,-77 -111,-77 -121,-20 -50,-2 -70,43 -41,83 -34,50 11,105 67,97 19,38 24,78 3,115 z" />
+                <g transform="matrix(0.10621916,0,0,0.10621916,91.072019,51.629718)">
+                    <path d="m 573.78396,1232.6877 c -29.13435,-6.1238 -45.37287,-35.489 -63.86454,-56.5864 -22.02566,-30.0171 -53.44855,-56.3268 -60.85316,-94.4489 -1.00409,-27.4282 20.29141,-48.4789 31.59702,-71.8348 6.89872,-10.94335 25.63373,-40.34905 0.15512,-22.47735 -24.4548,11.1674 -55.04263,27.67065 -80.63942,10.3459 -35.07294,-27.5827 -46.1323,-74.81909 -80.95096,-102.77639 -18.45793,-15.62589 -30.10776,-46.11113 -9.04864,-64.85293 27.33902,-23.94623 66.85118,-14.28238 98.9371,-7.76606 48.86029,11.58452 100.33079,26.5406 137.23301,62.4131 8.3499,8.18397 29.68517,42.28808 28.11811,10.01988 -10.01184,-22.54379 -23.34376,-50.13037 -41.89745,-64.26298 -29.08807,5.42442 -2.37477,-40.51633 7.85817,-13.53259 -0.27434,23.82568 20.51395,41.9752 30.19713,62.81394 12.08333,22.37783 15.54031,-5.80341 7.61681,-17.02657 -4.44278,-15.64993 -7.4792,-32.66354 -13.63939,-47.36406 -22.22617,-10.59428 8.75815,-38.02342 12.98392,-11.42238 -16.70095,14.76708 -0.74501,38.95364 2.47816,58.82503 -3.94335,13.66901 29.56159,50.55661 22.15122,18.91389 -5.36926,-63.75305 27.35804,-122.03066 60.89445,-173.6575 16.3754,-27.23089 43.80647,-56.33033 78.43702,-53.04953 14.26498,4.54203 21.65629,17.83929 24.44519,20.71832 3.16875,10.14821 -3.30389,-3.93358 1.90365,10.82667 3.25185,27.64268 -0.82264,56.16053 8.63195,82.99883 6.77832,27.79646 21.12777,60.73682 1.17324,86.59244 -16.64696,20.30605 -43.14129,27.69864 -64.83837,39.216 29.55371,11.80814 62.56046,14.58524 90.74664,29.54289 27.56133,27.3114 25.54065,69.0623 32.45754,104.64215 3.40496,31.6894 11.88726,67.216 -5.38777,96.257 -19.52634,13.8973 -43.55469,-3.3122 -62.16953,-11.6892 -51.04885,-28.3929 -93.68726,-70.3144 -126.99335,-117.88465 -4.94061,16.19485 22.13175,39.90035 11.0381,58.05715 -25.21035,5.0603 -23.20229,-36.474 -37.72507,-48.7656 -0.36661,27.1543 5.341,54.8697 4.39074,82.4028 1.48042,48.299 -6.22446,99.6119 -35.39083,139.3348 -0.26658,2.6884 -7.40556,4.8133 -10.04581,5.4771 z M 299.42553,870.36342 c -1.77024,-5.43958 3.26142,5.33196 0,0 z m 24.22332,-51.40198 c 7.11913,-4.29677 -0.41646,2.03046 0,0 z" style="fill:#ffffff;fill-opacity:1" />
+                </g>
+            </svg>
+        </span>
+        <p class="backgroundText">Design</p>
+    </section>
+    <section class="page4" data-page="4" data-page-title="Code">
+        <span class="textBox">
+            <p>Again: I love coding.
+	       I'm a perfectionist.
+	       I code as well as I possibly can.
+	       I love using advanced techniques.
+	       List comprehensions? Check.
+	       Inline functions? Check.
+	       I code in HTML,
+	       CSS,
+	       JavaScript,
+	       and Python.</p>
+        </span>
+        <span class="computer">
+            <svg width="600" height="507" viewbox="0 0 600 507" preserveaspectratio="xMidYMid meet">
+                <filter style="color-interpolation-filters:sRGB;" id="dropfilter">
+                    <feflood flood-opacity="0.25" flood-color="rgb(0,0,0)" result="flood" />
+                    <fecomposite in="flood" in2="SourceGraphic" operator="in" result="composite1" />
+                    <feoffset dx="10" dy="10" result="offset" />
+                    <fecomposite in="SourceGraphic" in2="offset" operator="over" result="composite2" />
+                </filter>
+                <g transform="translate(0,-545.36218)">
+                    <path style="fill:#c0392b;filter:url(#dropfilter)" d="m 297.47706,865.86688 c -14.62944,0 -26.47706,11.86559 -26.47706,26.49504 0,14.62944 11.84762,26.53104 26.47706,26.53104 14.62945,0 26.52294,-11.9016 26.52294,-26.53104 0,-14.62945 -11.89349,-26.49504 -26.52294,-26.49504 z M 0,578.36192 c 0,-16 17,-33 34,-33 0.139469,0 523,0 523,0 18,0 35,17 35,33 l 0,331 c 0,18 -17,35 -35,35 l -209,0 0,67.00028 35,0 0,33 -174,0 0,-33 35,0 0,-67.00028 -210,0 c -17,0 -34,-17 -34,-35 z m 34,266 c 523,0 0,0 523,0 0,-264 0,0 0,-264 -523,0 -523,0 -523,0 z" />
+                    <path style="fill:none;stroke:#ffffff;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;filter:url(#dropfilter)" d="m 254,687.36192 -36,20 36,21 m 92,-41 36,20 -36,21 m -26,-72 -45,113" />
+                </g>
+            </svg>
+        </span>
+        <p class="backgroundText">Code</p>
+    </section>
+
 </body>
