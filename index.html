@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Fill1890 on Github</title>
     <style>
-         body {
+        body {
             font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            overflow-x: hidden;
         }
+        
         .page1,
         .page2,
         .page3,
@@ -20,6 +23,7 @@
         .computer svg {
             position: absolute;
         }
+        
         .page1 {
             background-color: #2c3e50;
             color: #34495e;
@@ -29,6 +33,7 @@
             height: 100vh;
             z-index: 5;
         }
+        
         .textBox {
             background-color: #ecf0f1;
             color: #000000;
@@ -44,25 +49,40 @@
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             font-size: 18px;
         }
+        
         .backgroundText {
-            font-size: 20.8vh;
+            font-size: 21vmin;
             bottom: 15px;
             left: 39px;
             white-space: pre-line;
             margin: 0;
             font-weight: 100;
+            width: 48vw;
         }
+        
         .stars svg:first-child {
-            left: 59.4vw;
+            right: 31.48vw;
             top: 50.5vh;
             height: 20vh;
             width: 20vh;
         }
+        
         .stars svg:last-child {
-            left: 75vw;
+            right: 14.71vw;
             top: 21.3vh;
             height: 20vh;
             width: 20vh;
+        }
+        
+        @media (max-width: 890px) {
+            .stars svg:first-child {
+                left: 10vw;
+                top: 55vh;
+            }
+            .stars svg:last-child {
+                right: 10vw;
+                top: 30vh;
+            }
         }
     </style>
 </head>
@@ -104,9 +124,7 @@
                 I love coding.
                 I like designing.
                 I love reading.
-                I enjoy working personally.
-                I also enjoy working on projects for others.
-                This website? Designed, coded, and presented by yours truly.
+                I enjoy any kind of project.
         </span>
         <span class="clouds">
             <svg viewbox="0 0 238 173" preserveaspectratio="xMidYMid meet" class="cloud1">
@@ -128,44 +146,43 @@
                 <path style="fill:#3498db;fill-opacity:1;stroke:none;filter:url(#dropshadow3)" d="m 44,164 139,0 c 43,-2 73,-62 14,-96 9,-71 -71,-86 -106,-44 -35,-7 -60,13 -57,44 -43,14 -48,94 10,96 z" />
             </svg>
             <svg width="620" height="512" viewbox="0 0 620 512" preserveaspectratio="xMaxYMax meet" class="mountains">
-  <defs>
-    <filter color-interpolation-filters="sRGB" id="drop3">
-      <feflood result="flood" flood-color="rgb(0,0,0)" flood-opacity="0.25" />
-      <fecomposite in2="SourceGraphic" operator="in" in="flood" result="composite1" />
-      <feoffset result="offset" dy="0" dx="3" />
-      <fecomposite in2="offset" operator="over" in="SourceGraphic" result="composite2" />
-    </filter>
-    <filter color-interpolation-filters="sRGB" id="drop5">
-      <feflood result="flood" flood-color="rgb(0,0,0)" flood-opacity="0.25" />
-      <fecomposite in2="SourceGraphic" operator="in" in="flood" result="composite1" />
-      <feoffset result="offset" dy="0" dx="5" />
-      <fecomposite in2="offset" operator="over" in="SourceGraphic" result="composite2" />
-    </filter>
-    <filter color-interpolation-filters="sRGB" id="drop2">
-      <feflood result="flood" flood-color="rgb(0,0,0)" flood-opacity="0.25" />
-      <fecomposite in2="SourceGraphic" operator="in" in="flood" result="composite1" />
-      <feoffset result="offset" dy="0" dx="2" />
-      <fecomposite in2="offset" operator="over" in="SourceGraphic" result="composite2" />
-    </filter>
-  </defs>
-  <g transform="translate(0,-500)">
-    <path d="M 617,756 617,750.66064 476,500 332,756 z" style="fill:#000000;fill-opacity:1;stroke:none;filter:url(#drop3)" />
-    <path d="M 620,756 476,500 188,1012 620,1012 z" style="fill:#3498db;fill-opacity:1;stroke:none" />
-    <path d="M 308,564 235.8125,669 374.84375,669 377.625,664 z" style="fill:#000000;fill-opacity:1;stroke:none;filter:url(#drop5)" />
-    <path d="M 381.125,669 379.92802,667.28125 379,669 235.8125,669 0,1012 618,1012 618,1009.1406 z" style="fill:#000000;fill-opacity:1;stroke:none;filter:url(#drop2)" />
-    <path d="M 620,1012 308,564 0,1012 z" style="fill:#3498db;fill-opacity:1;stroke:none" />
-    <path d="M 476,500 404,628 548,628 z" style="fill:#ffffff;fill-opacity:1;stroke:none" />
-    <path d="M 308,564 264,628 352.57228,628 z" style="fill:none;stroke:none" />
-    <path d="M 352.57228,628 308,564 264,628 z" style="fill:#ffffff;fill-opacity:1;stroke:none" />
-  </g>
-</svg>
+                <defs>
+                    <filter color-interpolation-filters="sRGB" id="drop3">
+                        <feflood result="flood" flood-color="rgb(0,0,0)" flood-opacity="0.25" />
+                        <fecomposite in2="SourceGraphic" operator="in" in="flood" result="composite1" />
+                        <feoffset result="offset" dy="0" dx="3" />
+                        <fecomposite in2="offset" operator="over" in="SourceGraphic" result="composite2" />
+                    </filter>
+                    <filter color-interpolation-filters="sRGB" id="drop5">
+                        <feflood result="flood" flood-color="rgb(0,0,0)" flood-opacity="0.25" />
+                        <fecomposite in2="SourceGraphic" operator="in" in="flood" result="composite1" />
+                        <feoffset result="offset" dy="0" dx="5" />
+                        <fecomposite in2="offset" operator="over" in="SourceGraphic" result="composite2" />
+                    </filter>
+                    <filter color-interpolation-filters="sRGB" id="drop2">
+                        <feflood result="flood" flood-color="rgb(0,0,0)" flood-opacity="0.25" />
+                        <fecomposite in2="SourceGraphic" operator="in" in="flood" result="composite1" />
+                        <feoffset result="offset" dy="0" dx="2" />
+                        <fecomposite in2="offset" operator="over" in="SourceGraphic" result="composite2" />
+                    </filter>
+                </defs>
+                <g transform="translate(0,-500)">
+                    <path d="M 617,756 617,750.66064 476,500 332,756 z" style="fill:#000000;fill-opacity:1;stroke:none;filter:url(#drop3)" />
+                    <path d="M 620,756 476,500 188,1012 620,1012 z" style="fill:#3498db;fill-opacity:1;stroke:none" />
+                    <path d="M 308,564 235.8125,669 374.84375,669 377.625,664 z" style="fill:#000000;fill-opacity:1;stroke:none;filter:url(#drop5)" />
+                    <path d="M 381.125,669 379.92802,667.28125 379,669 235.8125,669 0,1012 618,1012 618,1009.1406 z" style="fill:#000000;fill-opacity:1;stroke:none;filter:url(#drop2)" />
+                    <path d="M 620,1012 308,564 0,1012 z" style="fill:#3498db;fill-opacity:1;stroke:none" />
+                    <path d="M 476,500 404,628 548,628 z" style="fill:#ffffff;fill-opacity:1;stroke:none" />
+                    <path d="M 308,564 264,628 352.57228,628 z" style="fill:none;stroke:none" />
+                    <path d="M 352.57228,628 308,564 264,628 z" style="fill:#ffffff;fill-opacity:1;stroke:none" />
+                </g>
+            </svg>
         </span>
         <h2 class="backgroundText">About Me</h2>
     </section>
     <section class="page3" data-page="3" data-page-title="Design">
         <span class="textBox">I like elegant,
-                smooth,
-                flat,
+                smooth, flat,
                 and animated designs.
                 Like this one.
                 For me, designing isn't making new things.
@@ -210,15 +227,11 @@
     </section>
     <section class="page4" data-page="4" data-page-title="Code">
         <span class="textBox">Again: I love coding.
-	       I'm a perfectionist.
-	       I code as well as I possibly can.
-	       I love using advanced techniques.
-	       List comprehensions? Check.
-	       Inline functions? Check.
-	       I code in HTML,
-	       CSS,
-	       JavaScript,
-	       and Python.
+            I'm a perfectionist.
+            I code as well as I possibly can.
+            I code in HTML, CSS,
+            JavaScript, Python,
+            and Swift.
         </span>
         <span class="computer">
             <svg width="600" height="507" viewbox="0 0 600 507" preserveaspectratio="xMidYMid meet">
@@ -236,9 +249,12 @@
         </span>
         <h2 class="backgroundText">Code</h2>
     </section>
-    
+
     <!-- Deferred CSS and JS -->
-    <noscript><link rel="stylesheet" type="text/css" href="style.css" /></noscript>
+    <noscript>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </noscript>
+
     <script>
         function loadCss() {
             if (document.createStyleSheet) document.createStyleSheet('style.css');
@@ -250,16 +266,22 @@
                 document.getElementsByTagName('head')[0].appendChild(stylesheet);
             }
         }
+
         function loadJs() {
             var element = document.createElement('script');
             element.src = 'script.js';
             document.body.appendChild(element);
         }
-        function load() {loadCss(); loadJs;}
+
+        function load() {
+            loadCss();
+            loadJs();
+        }
         if (window.addEventListener) window.addEventListener("load", load, false);
         else if (window.attachEvent) window.attachEvent("onload", load);
         else window.onload = load;
     </script>
 
 </body>
+
 </html>
