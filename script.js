@@ -7,7 +7,7 @@ function scrollToTop(scrollDuration) {
         cosParameter = scrollHeight / 2,
         scrollCount = 0,
         scrollMargin;
-    
+
     function step() {
         setTimeout(function () {
             if (window.scrollY !== 0) {
@@ -18,7 +18,7 @@ function scrollToTop(scrollDuration) {
             }
         }, 15);
     }
-    
+
     requestAnimationFrame(step);
 }
 
@@ -43,7 +43,7 @@ function scrollToTop(scrollDuration) {
         count = 0,
         margin;
     requestAnimationFrame(move);
-    
+
     function move() {
         setTimeout(function() {
             console.log('Animate');
@@ -119,15 +119,15 @@ function scrollByY(scrollDistance, scrollDuration) {
             }
         }, 15);
     }
-    
+
     requestAnimationFrame(step);
-    
+
     console.log('scrollHeight: ' + scrollHeight);
     console.log('scrollInitial: ' + scrollInitial);
     console.log('scrollStep: ' + scrollStep);
     console.log('cosParameter: ' + cosParameter);
 
-    
+
 }
 
 function testingY(scrollDistance) {
@@ -148,5 +148,5 @@ function testingY(scrollDistance) {
         }
     }
     requestAnimationFrame(step);
-    
+
 }

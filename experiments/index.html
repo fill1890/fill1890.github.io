@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <style>
+            body {
+                position: absolute;
+                width: 100vw;
+                height: 100vh;
+                top: 0;
+                left: 0;
+                text-align: center;
+            }
+            .container.left {
+                width: 200px;
+                height: 50px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                perspective: 1000px;
+            }
+            .container.right {
+                width: 200px;
+                height: 50px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                perspective: 1000px;
+            }
+            .block {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                transition: transform 1s;
+                transform-style: preserve-3d;
+            }
+            .block.right:hover {
+                transform: rotateY(-90deg);
+            }
+            .block.left:hover {
+                transform: rotateY(90deg);
+            }
+            .block figure {
+                margin: 0;
+                width: 200px;
+                height: 50px;
+                display: block;
+                position: absolute;
+                text-align: center;
+            }
+            .block .front {transform: rotateY(  0deg) translateZ(100px); background-color: white;}
+            .block .right {transform: rotateY( 90deg) translateZ(100px); background-color: #1686AD;}
+            .block .left  {transform: rotateY(-90deg) translateZ(100px); background-color: #1686AD;}
+            .toggleRotate {
+                text-align: center;
+                position: relative;
+                padding: 10px;
+                top: 20vh;
+                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                font-size: 1.7em;
+                background-color: #AD3D16;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+            }
+            .toggleRotate:active {
+                background-color: #A53607;
+            }
+        </style>
+        <script>
+            function toggleRotate() {
+                document.querySelector(".block.left").style.transform = "rotateY(90deg)";
+            };
+        </script>
+    </head>
+    
+    <body>
+        <div class="container left">
+            <span class="block left">
+                <figure class="front"></figure>
+                <figure class="left"></figure>
+            </span>
+        </div>
+        <div class="container right">
+            <span class="block right">
+                <figure class="front"></figure>
+                <figure class="right"></figure>
+            </span>
+        </div>
+        <a class="toggleRotate">Open/Close</a>
+        <script>
+            document.getElementsByClassName("toggleRotate")[0].onclick = toggleRotate;
+        </script>
+    </body>
+    
+</html>
