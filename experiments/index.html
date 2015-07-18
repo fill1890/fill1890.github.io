@@ -15,16 +15,16 @@
                 width: 200px;
                 height: 50px;
                 position: absolute;
-                top: 0;
-                left: 0;
+                top: -6px;
+                left: 3px;
                 perspective: 1000px;
             }
             .container.right {
                 width: 200px;
                 height: 50px;
                 position: absolute;
-                top: 0;
-                right: 0;
+                top: -6px;
+                right: 3px;
                 perspective: 1000px;
             }
             .block {
@@ -43,6 +43,11 @@
                 display: block;
                 position: absolute;
                 text-align: center;
+            }
+            .block figure.top {
+                height: 200px;
+                transform: rotateX(90deg) translateZ(100px);
+                background-color: #d3d3d3;
             }
             .block .front {transform: rotateY(  0deg) translateZ(100px); background-color: white;}
             .block .right {transform: rotateY( 90deg) translateZ(100px);}
@@ -67,11 +72,9 @@
             function toggleRotate() {
                 var elemLeft = document.querySelectorAll(".block.left");
                 var elemRight = document.querySelectorAll(".block.right");
-                console.log(elemLeft[0].style.transform);
                 if (elemLeft[0].style.transform == "rotateY(90deg)") {
                     function loopOut(i) {
                         setTimeout(function() {
-                            console.log(0);
                             elemLeft[i].style.transform = "rotateY(0deg)";
                             elemRight[i].style.transform = "rotateY(0deg)";
                             i--;
@@ -110,8 +113,8 @@
             leftContainer = document.querySelector(".container.left");
             rightContainer = document.querySelector(".container.right");
             for (var i = 0; i < 10; i++) {
-                leftContainer.innerHTML += '<span class="block left" style="top:' + (i * 50).toString() + 'px;z-index:-' + i.toString() + ';"><figure class="front"></figure><figure class="left" style="background-color:#' + colours[i] + ';"></figure></span>'
-                rightContainer.innerHTML += '<span class="block right" style="top:' + (i * 50).toString() + 'px;z-index:-' + i.toString() + ';"><figure class="front"></figure><figure class="right" style="background-color:#' + colours[i] + ';"></figure></span>'
+                leftContainer.innerHTML += '<span class="block left" style="top:' + (i * 49).toString() + 'px;z-index:-' + i.toString() + ';"><figure class="top"></figure><figure class="front"></figure><figure class="left" style="background-color:#' + colours[i] + ';"></figure></span>'
+                rightContainer.innerHTML += '<span class="block right" style="top:' + (i * 49).toString() + 'px;z-index:-' + i.toString() + ';"><figure class="top"></figure><figure class="front"></figure><figure class="right" style="background-color:#' + colours[i] + ';"></figure></span>'
             }
         </script>
     </body>
