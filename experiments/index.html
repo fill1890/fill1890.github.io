@@ -1,122 +1,252 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <style>
-            body {
-                position: absolute;
-                width: 100vw;
-                height: 100vh;
-                top: 0;
-                left: 0;
-                text-align: center;
-            }
-            .container.left {
-                width: 200px;
-                height: 50px;
-                position: absolute;
-                top: -6px;
-                left: 3px;
-                perspective: 1000px;
-            }
-            .container.right {
-                width: 200px;
-                height: 50px;
-                position: absolute;
-                top: -6px;
-                right: 3px;
-                perspective: 1000px;
-            }
-            .block {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                transition: transform 1s;
-                transform-style: preserve-3d;
-            }
-            .block figure {
-                margin: 0;
-                width: 200px;
-                height: 50px;
-                display: block;
-                position: absolute;
-                text-align: center;
-            }
-            .block figure.top {
-                height: 200px;
-                transform: rotateX(90deg) translateZ(100px);
-                background-color: #d3d3d3;
-            }
-            .block .front {transform: rotateY(  0deg) translateZ(100px); background-color: white;}
-            .block .right {transform: rotateY( 90deg) translateZ(100px);}
-            .block .left  {transform: rotateY(-90deg) translateZ(100px);}
-            .toggleRotate {
-                text-align: center;
-                position: relative;
-                padding: 10px;
-                top: 20vh;
-                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-                font-size: 1.7em;
-                background-color: #AD3D16;
-                color: white;
-                text-decoration: none;
-                border-radius: 5px;
-            }
-            .toggleRotate:active {
-                background-color: #A53607;
-            }
-        </style>
-        <script>
-            function toggleRotate() {
-                var elemLeft = document.querySelectorAll(".block.left");
-                var elemRight = document.querySelectorAll(".block.right");
-                if (elemLeft[0].style.transform == "rotateY(90deg)") {
-                    function loopOut(i) {
-                        setTimeout(function() {
-                            elemLeft[i].style.transform = "rotateY(0deg)";
-                            elemRight[i].style.transform = "rotateY(0deg)";
-                            i--;
-                            if (i >= 0) {
-                                loopOut(i);
-                            }
-                        },75)
-                    }
-                    loopOut(elemLeft.length - 1)
-                } else {
-                    function loopIn(i) {
-                        setTimeout(function() {
-                            elemLeft[i].style.transform = "rotateY(90deg)";
-                            elemRight[i].style.transform = "rotateY(-90deg)";
-                            i++;
-                            if (i < elemLeft.length) {
-                                loopIn(i);
-                            }
-                        },75)
-                    }
-                    loopIn(0)
+<head>
+    <style>
+        body {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            text-align: center;
+            margin: 0;
+            background-color: black;
+        }
+        
+        .containerMain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            perspective: 1000px;
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .carouselParent {
+            transition: transform 0.5s;
+        }
+        
+        .carousel, .carouselParent {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            transform-origin: center;
+        }
+        
+        .page1 {
+            background-color: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .carousel .page {
+            background-color: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .container.left {
+            width: 200px;
+            height: 50px;
+            position: absolute;
+            top: 2px;
+            left: 11px;
+            perspective: 1000px;
+        }
+        
+        .container.right {
+            width: 200px;
+            height: 50px;
+            position: absolute;
+            top: 2px;
+            right: 11px;
+            perspective: 1000px;
+        }
+        
+        .block {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: transform 1s;
+            transform-style: preserve-3d;
+            -webkit-backface-visibility: visible;
+            backface-visibility: visible;
+        }
+        
+        .block figure {
+            margin: 0;
+            width: 200px;
+            height: 50px;
+            display: block;
+            position: absolute;
+            text-align: center;
+        }
+        
+        .block figure.top {
+            height: 200px;
+            transform: rotateX(90deg) translateZ(100px);
+            background-color: #b3b3b3;
+        }
+        
+        .block .front {
+            transform: rotateY( 0deg) translateZ(100px);
+            background-color: white;
+        }
+        
+        .block .right {
+            transform: rotateY( 90deg) translateZ(100px);
+        }
+        
+        .block .left {
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        
+        .toggleRotate {
+            text-align: center;
+            position: relative;
+            margin-top: 100px;
+            display: inline-block;
+            padding: 10px;
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-size: 1.7em;
+            background-color: #CB3B27;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 9px 0 #84261A;
+            max-width: 150px;
+            cursor: pointer;
+        }
+        
+        .toggleRotate:active {
+            box-shadow: 0 3px 0 rgba(110, 36, 3, 1), 0 3px 0 rgba(0, 0, 0, .7);
+            top: 6px;
+        }
+        .backArrow {
+            position: absolute;
+            height: 40px;
+            width: 40px;
+            left: 5px;
+            top: 5px;
+        }
+    </style>
+    <script src="pages.js"></script>
+    <script>
+        function toggleRotate() {
+            console.log("Fired");
+            var elemLeft = document.querySelectorAll(".block.left");
+            var elemRight = document.querySelectorAll(".block.right");
+            if (elemLeft[0].style.transform == "rotateY(90deg)") {
+                function loopOut(i) {
+                    setTimeout(function () {
+                        elemLeft[i].style.transform = "rotateY(0deg)";
+                        elemRight[i].style.transform = "rotateY(0deg)";
+                        i--;
+                        if (i >= 0) {
+                            loopOut(i);
+                        }
+                    }, 150)
                 }
-            };
-        </script>
-    </head>
-
-    <body>
-        <div class="container left">
-        </div>
-        <div class="container right">
-        </div>
-        <a class="toggleRotate">Open/Close</a>
-        <script>
-            colours = ['1686AD', '163AAD', '3D16AD', '8816AD', 'AD1685', 'AD163A', 'AD8816', '85AD16', '3AAD16', '16AD3D', '16AD88'];
-            document.getElementsByClassName("toggleRotate")[0].onclick = toggleRotate;
-            leftContainer = document.querySelector(".container.left");
-            rightContainer = document.querySelector(".container.right");
-            for (var i = 0; i < 10; i++) {
-                leftContainer.innerHTML += '<span class="block left" style="top:' + (i * 49).toString() + 'px;z-index:-' + i.toString() + ';"><figure class="top"></figure><figure class="front"></figure><figure class="left" style="background-color:#' + colours[i] + ';"></figure></span>'
-                rightContainer.innerHTML += '<span class="block right" style="top:' + (i * 49).toString() + 'px;z-index:-' + i.toString() + ';"><figure class="top"></figure><figure class="front"></figure><figure class="right" style="background-color:#' + colours[i] + ';"></figure></span>'
+                loopOut(elemLeft.length - 1)
+            } else {
+                function loopIn(i) {
+                    setTimeout(function () {
+                        elemLeft[i].style.transform = "rotateY(90deg)";
+                        elemRight[i].style.transform = "rotateY(-90deg)";
+                        i++;
+                        if (i < elemLeft.length) {
+                            loopIn(i);
+                        }
+                    }, 150)
+                }
+                loopIn(0)
             }
-        </script>
-    </body>
+        };
+
+        function rotateTo(degrees) {
+            var distOut = (window.innerWidth + Math.sqrt(2) * window.innerWidth) / 2;
+            var carousel = document.querySelector(".carousel"),
+                carouselParent = document.querySelector(".carouselParent");
+            var rot = "0";
+            carouselParent.style.transform = "translateZ(-500px)";
+            console.log(distOut);
+            console.log(carousel);
+            console.log(carouselParent);
+            setTimeout(function () {
+                document.querySelector(".carousel").style.transform = "translateZ(-" + distOut.toString() + "px) rotateY(" + degrees.toString() + "deg)";
+            }, 500);
+            setTimeout(function () {
+                console.log("Stage 2");
+                carouselParent.style.transform = "translateZ(0)";
+                console.log("Complete");
+            }, 1000);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="containerMain">
+        <div class="carouselParent">
+            <div class="carousel">
+                <div class="page page1">
+                    <div class="container left">
+                    </div>
+                    <div class="container right">
+                    </div>
+                    <a class="toggleRotate">Open/Close</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var colours = ['8e44ad', '9b59b6', '3498db', '1abc9c', '2ecc71', 'f1c40f', 'f39c12', 'e67e22', 'e74c3c', 'c0392b', 'bdc3c7'];
+        var leftContainer = document.querySelector(".container.left"),
+            rightContainer = document.querySelector(".container.right");
+        for (var i = 0; i < 10; i++) {
+            leftContainer.innerHTML += '<span class="block left" style="top:' + (i * 49).toString() + 'px;z-index:-' + i.toString() + ';"><figure class="top"></figure><figure class="front"></figure><figure class="left" style="background-color:#' + colours[i] + ';"></figure></span>';
+            rightContainer.innerHTML += '<span class="block right" style="top:' + (i * 49).toString() + 'px;z-index:-' + i.toString() + ';"><figure class="top"></figure><figure class="front"></figure><figure class="right" style="background-color:#' + colours[i] + ';"></figure></span>';
+        }
+        var distOut = (window.innerWidth + Math.sqrt(2) * window.innerWidth) / 2;
+        var carousel = document.querySelector(".carousel");
+        carousel.style.transform = "translateZ(-" + distOut.toString() + "px)";
+        for (var i = 1; i < 8; i++) {
+            carousel.innerHTML += '<div class="page page' + i.toString() + '" style="transform:rotateY(' + (i / 8 * 360).toString() + 'deg) translateZ(' + (distOut).toString() + 'px)">' + pages[i] + '</div>';
+        }
+        document.querySelector(".page.page1").style.transform = "rotateY(0deg) translateZ(" + distOut.toString() + "px)";
+        carousel.style.transition = "transform 0.5s";
+        document.getElementsByClassName("toggleRotate")[0].addEventListener("click", function() {
+            toggleRotate();
+        });
+        document.querySelectorAll(".container.left figure.left")[0].addEventListener("click", function() {
+            console.log("Fired click");
+            rotateTo(-45);
+        });
+        var arrows = document.querySelectorAll(".backArrow");
+        for (var i = 0; i < arrows.length; i++) {
+            arrows[i].addEventListener("click", function() {
+                rotateTo(0);
+            });
+        }
+    </script>
+</body>
 
 </html>
+
+<!--
+
+IDEAS
+
+'Carousel' of different pages, navigated to from 'gate' page (Highlight option and transitions)
+Bubbles page, where colours pop randomly or at mouse cursor
+
+-->
