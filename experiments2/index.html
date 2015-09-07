@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Testing</title>
+    <link rel="stylesheet" type="text/css" href="resources/style.css">
+    <script src="resources/script.js" defer="defer"></script>
+</head>
+
+<body style="">
+
+    <svg width="25" height="17" viewbox="0 0 25 17" class="menuButton" onclick="menuScale()">
+        <rect x="0" y="0" rx="1.5" ry="1.5" width="22" height="3" />
+        <rect x="0" y="7" rx="1.5" ry="1.5" width="22" height="3" />
+        <rect x="0" y="14" rx="1.5" ry="1.5" width="22" height="3" />
+    </svg>
+    <section class="settingsPage">
+        <p>Settings</p>
+        <p>Background colour:</p>
+        <p>Foreground colour:</p>
+    </section>
+    <div class="containerMain fullscreen">
+        <div class="carouselMain">
+            <div class="carousel">
+                <section class="page page1 homePage fullscreen">
+                    <section data-page="0" class="fullscreen timePage" style="">
+                        <!-- TODO: Rebuild with JavaScript instead of explicit -->
+                        <svg viewbox="0 0 1000 1000" class="clockBox">
+                            <g class="analog analogMinute">
+                                <line x1="500" y1="500" x2="500" y2="45" style="stroke-width:4;stroke:rgb(0,0,0)" />
+                                <path d="M465 9 A491 491 0 1 0 535 9 v10 A481 481 0 1 1 465 19 Z" style="fill:white;" />
+                            </g>
+                            <g class="analogSecondMarkers">
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                            </g>
+                            <g class="analogHourMarkers">
+                                <g>
+                                    <circle cx="495" cy="20" r="4" />
+                                    <circle cx="485" cy="20" r="4" />
+                                    <circle cx="475" cy="20" r="4" />
+                                    <circle cx="505" cy="20" r="4" />
+                                    <circle cx="515" cy="20" r="4" />
+                                    <circle cx="525" cy="20" r="4" />
+                                    <circle cx="495" cy="40" r="4" />
+                                    <circle cx="485" cy="40" r="4" />
+                                    <circle cx="475" cy="40" r="4" />
+                                    <circle cx="505" cy="40" r="4" />
+                                    <circle cx="515" cy="40" r="4" />
+                                    <circle cx="525" cy="40" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="500" cy="30" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="495" cy="30" r="4" />
+                                    <circle cx="505" cy="30" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="490" cy="30" r="4" />
+                                    <circle cx="500" cy="30" r="4" />
+                                    <circle cx="510" cy="30" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="495" cy="30" r="4" />
+                                    <circle cx="485" cy="30" r="4" />
+                                    <circle cx="505" cy="30" r="4" />
+                                    <circle cx="515" cy="30" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="480" cy="30" r="4" />
+                                    <circle cx="490" cy="30" r="4" />
+                                    <circle cx="500" cy="30" r="4" />
+                                    <circle cx="510" cy="30" r="4" />
+                                    <circle cx="520" cy="30" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="495" cy="30" r="4" />
+                                    <circle cx="485" cy="30" r="4" />
+                                    <circle cx="475" cy="30" r="4" />
+                                    <circle cx="505" cy="30" r="4" />
+                                    <circle cx="515" cy="30" r="4" />
+                                    <circle cx="525" cy="30" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="495" cy="20" r="4" />
+                                    <circle cx="485" cy="20" r="4" />
+                                    <circle cx="475" cy="20" r="4" />
+                                    <circle cx="505" cy="20" r="4" />
+                                    <circle cx="515" cy="20" r="4" />
+                                    <circle cx="525" cy="20" r="4" />
+                                    <circle cx="500" cy="40" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="495" cy="20" r="4" />
+                                    <circle cx="485" cy="20" r="4" />
+                                    <circle cx="475" cy="20" r="4" />
+                                    <circle cx="505" cy="20" r="4" />
+                                    <circle cx="515" cy="20" r="4" />
+                                    <circle cx="525" cy="20" r="4" />
+                                    <circle cx="495" cy="40" r="4" />
+                                    <circle cx="505" cy="40" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="495" cy="20" r="4" />
+                                    <circle cx="485" cy="20" r="4" />
+                                    <circle cx="475" cy="20" r="4" />
+                                    <circle cx="505" cy="20" r="4" />
+                                    <circle cx="515" cy="20" r="4" />
+                                    <circle cx="525" cy="20" r="4" />
+                                    <circle cx="490" cy="40" r="4" />
+                                    <circle cx="500" cy="40" r="4" />
+                                    <circle cx="510" cy="40" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="495" cy="20" r="4" />
+                                    <circle cx="485" cy="20" r="4" />
+                                    <circle cx="475" cy="20" r="4" />
+                                    <circle cx="505" cy="20" r="4" />
+                                    <circle cx="515" cy="20" r="4" />
+                                    <circle cx="525" cy="20" r="4" />
+                                    <circle cx="495" cy="40" r="4" />
+                                    <circle cx="485" cy="40" r="4" />
+                                    <circle cx="505" cy="40" r="4" />
+                                    <circle cx="515" cy="40" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="495" cy="20" r="4" />
+                                    <circle cx="485" cy="20" r="4" />
+                                    <circle cx="475" cy="20" r="4" />
+                                    <circle cx="505" cy="20" r="4" />
+                                    <circle cx="515" cy="20" r="4" />
+                                    <circle cx="525" cy="20" r="4" />
+                                    <circle cx="480" cy="40" r="4" />
+                                    <circle cx="490" cy="40" r="4" />
+                                    <circle cx="500" cy="40" r="4" />
+                                    <circle cx="510" cy="40" r="4" />
+                                    <circle cx="520" cy="40" r="4" />
+                                </g>
+                            </g>
+                            <g class="analog analogHour">
+                                <line x1="500" y1="500" x2="500" y2="140" style="stroke-width:4;stroke:rgb(0,0,0)" />
+                                <path d="M465 9 A491 491 0 1 0 535 9 v40 A452 452 0 1 1 465 49 Z" style="fill:white;" />
+                            </g>
+                            <g class="analog analogSecond">
+                                <line x1="500" y1="600" x2="500" y2="45" style="stroke-width:2;stroke:rgb(0,0,0)" />
+                                <path d="M465 0 A500 500 0 1 0 535 0 v10 A490 490 0 1 1 465 10 Z" style="fill:white;" />
+                            </g>
+                        </svg>
+                    </section>
+                    <section data-page="1" class="fullscreen weatherPage" style="">
+                        <p>Content!</p>
+                    </section>
+                    <section data-page="2" class="fullscreen thirdPage" style="">
+                        <p>Content!</p>
+                    </section>
+                </section>
+                <section class="page page2 fullscreen timePage">
+                    <div class="timed" data-index="0">
+                        <span class="center time">
+                    <span class="hours">12</span>
+                        <span class="minutes">34</span>
+                        <span class="seconds">56</span>
+                        </span>
+                        <p class="center date">Sunday, December 25</p>
+                    </div>
+                </section>
+                <section class="page"></section>
+                <section class="page"></section>
+                <section class="page"></section>
+                <section class="page"></section>
+                <section class="page"></section>
+                <section class="page"></section>
+            </div>
+        </div>
+    </div>
+    <script>
+        var pages = document.querySelectorAll('.page');
+        var distOut = (window.innerWidth + Math.sqrt(2) * window.innerWidth) / 2;
+        var carousel = document.querySelector(".carousel");
+        carousel.style.transform = "translateZ(-" + distOut.toString() + "px)";
+        for (var i = 0; i < 8; i++) {
+            pages[i].style.transform = "rotateY(" + (i / 8 * 360).toString() + "deg) translateZ(" + distOut.toString() + "px)";
+        }
+    </script>
+</body>
+
+</html>

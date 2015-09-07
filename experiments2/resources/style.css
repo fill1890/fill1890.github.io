@@ -1,0 +1,106 @@
+/* Generic Classes */
+
+.center {
+    width: 100%;
+    text-align: center;
+}
+.fullscreen, .carousel .page {
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    margin-bottom: -17px;
+}
+/* Element specific */
+
+.page {
+    background-color: white;
+}
+
+html {
+    font-family: "HelveticaNeueUltraLight", "Helvetica Neue UltraLight", "Helvetice Neue Ultra Light", "Helvetica Neue", "Segoe UI Light", "Segoe UI", Arial, sans-serif;
+    letter-spacing: 2px;
+    font-weight: 100;
+    background-color: rgb(90, 90, 255);
+    background-color: rgba(0, 0, 255, 0.5);
+}
+.homePage section {
+    transition: transform 1s;
+    /*background-color: white;*/
+    position: relative;
+}
+.containerMain {
+    perspective: 1000px;
+}
+.time {
+    position: absolute;
+    font-size: 14em;
+    top: 20%;
+}
+.date {
+    font-size: 5em;
+    position: absolute;
+    top: 43%;
+}
+.timed {
+    /*opacity: 0;*/
+}
+.menuButton {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    z-index: 20;
+}
+.timePage {
+    top: 0;
+    z-index: 5;
+    background-color: white;
+}
+.homePage {
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    left: 0;
+}
+.clockBox {
+    width: 80vw;
+    height: 90vh;
+    position: relative;
+    top: 5vh;
+    left: 10vw;
+    z-index: 20;
+    max-height: 1000px;
+}
+.analog {
+    transition: transform 0.45s;
+    transform-origin: 50% 50% 0;
+    /*visibility: hidden;*/
+}
+.analogSecondMarkers circle {
+    transform-origin: 50% 500px 0;
+}
+.analogHourMarkers g {
+    transform-origin: 500px 500px 0;
+}
+.weatherPage {
+    background-color: darkgreen;
+}
+
+.thirdPage {
+    background-color: deepskyblue;
+}
+
+.settingsPage {
+    margin-top: 30px;
+}
+
+.carouselMain {
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.carousel {
+    transform-origin: center;
+    transform-style: preserve-3d;
+}
