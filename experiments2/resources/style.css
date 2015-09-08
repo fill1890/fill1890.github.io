@@ -4,7 +4,9 @@
     width: 100%;
     text-align: center;
 }
-.fullscreen, .carousel .page {
+
+.fullscreen,
+.carousel .page {
     position: absolute;
     left: 0;
     width: 100vw;
@@ -25,44 +27,54 @@ html {
     background-color: rgb(90, 90, 255);
     background-color: rgba(0, 0, 255, 0.5);
 }
+
 .homePage section {
     transition: transform 1s;
     /*background-color: white;*/
+    
     position: relative;
 }
+
 .containerMain {
     perspective: 1000px;
 }
+
 .time {
     position: absolute;
     font-size: 14em;
     top: 20%;
 }
+
 .date {
     font-size: 5em;
     position: absolute;
     top: 43%;
 }
+
 .timed {
     /*opacity: 0;*/
 }
+
 .menuButton {
     position: fixed;
     top: 5px;
     left: 5px;
     z-index: 20;
 }
+
 .timePage {
     top: 0;
     z-index: 5;
     background-color: white;
 }
+
 .homePage {
     position: absolute;
     width: 100vw;
     top: 0;
     left: 0;
 }
+
 .clockBox {
     width: 80vw;
     height: 90vh;
@@ -72,17 +84,21 @@ html {
     z-index: 20;
     max-height: 1000px;
 }
+
 .analog {
     transition: transform 0.45s;
     transform-origin: 50% 50% 0;
     /*visibility: hidden;*/
 }
+
 .analogSecondMarkers circle {
     transform-origin: 50% 500px 0;
 }
+
 .analogHourMarkers g {
     transform-origin: 500px 500px 0;
 }
+
 .weatherPage {
     background-color: darkgreen;
 }
@@ -103,4 +119,38 @@ html {
 .carousel {
     transform-origin: center;
     transform-style: preserve-3d;
+}
+
+.options div {
+    position: absolute;
+    width: 15vh;
+    height: 15vh;
+    transform: scale(0, 0);
+    top: 5vh;
+    transition: transform 0.4s cubic-bezier(.47, .01, 0, 1.5);
+}
+
+.analogOpt {
+    background-color: #1abc9c;
+    left: 17.5vw;
+}
+
+.opt1 {
+    background-color: #2ecc71;
+    left: 32.5vw;
+}
+
+.opt2 {
+    background-color: #3498db;
+    left: 47.5vw;
+}
+
+.opt3 {
+    background-color: #9b59b6;
+    left: 62.5vw;
+}
+
+.opt4 {
+    background-color: #34495e;
+    left: 77.5vw;
 }

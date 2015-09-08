@@ -149,16 +149,16 @@ function date() {
 
 (function () {
     var Library = function (selector) {
-        // Set selection to specified selector
-        var select = document.querySelectorAll(selector);
-        this.elem = select[0];
-        this.elems = select;
-        this.version = '0.0.5';
-        return this;
+            // Set selection to specified selector
+            var select = document.querySelectorAll(selector);
+            this.elem = select[0];
+            this.elems = select;
+            this.version = '0.0.5';
+            return this;
 
-    },
+        },
         $ = function (selector) {
-        // Get library and functions
+            // Get library and functions
             var libs = new Library(selector);
             return libs;
         };
@@ -239,18 +239,32 @@ function date() {
 })();
 
 function toggleCss(params, select) {
-    for (var i = 0; i < params.length; i++) {
-        var props = params[i].split(":"),
-            currentStyle = $$(select)[0].getAttribute('style') || "";
-            stylePos = currentStyle.indexOf(props[1]);
-        if (stylePos === -1) {
-            $$(select)[0].style[props[0]] = props[1];
-        } else {
-            $$(select)[0].style[props[0]] = props[2];
-        }
-        return;
+    var selected = $$(select);
 
+    function toggle(j, selected) {
+        print(selected);
+        print(selected[j]);
+        for (var i = 0; i < params.length; i++) {
+            var props = params[i].split(":"),
+                currentStyle = selected[j].getAttribute('style') || "";
+            stylePos = currentStyle.indexOf(props[1]);
+            if (stylePos < 0) {
+                print("1 " + props[1]);
+                selected[j].style[props[0]] = props[1];
+            } else {
+                print("2 " + props[2]);
+                selected[j].style[props[0]] = props[2];
+            }
+
+        }
+        if (j < selected.length - 1) {
+            j++;
+            setTimeout(function () {
+                toggle(j, selected);
+            }, 100);
+        }
     }
+    toggle(0, selected);
     return;
 
 }
@@ -266,10 +280,12 @@ function menuScale() {
         shiftAway = new Array(
             'transform:translate3d(25%, 0px, -1000px):translate3d(0,0,0)'
         ),
-        overflow = new Array('overflow:hidden:visible');
+        overflow = new Array('overflow:hidden:visible'),
+        showTiles = new Array('transform:scale(1, 1):scale(0, 0)');
     toggleCss(shiftAway, '.carouselMain');
     toggleCss(shiftUp, '.weatherPage');
     toggleCss(shiftUp2, '.thirdPage');
+    toggleCss(showTiles, '.options div')
     return;
 }
 

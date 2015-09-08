@@ -2,11 +2,9 @@
 <html>
 
 <head>
-
     <meta charset="UTF-8">
     <title>Testing</title>
     <link rel="stylesheet" type="text/css" href="resources/style.css">
-    <script src="resources/script.js" defer="defer"></script>
 </head>
 
 <body style="">
@@ -20,6 +18,13 @@
         <p>Settings</p>
         <p>Background colour:</p>
         <p>Foreground colour:</p>
+    </section>
+    <section class="options">
+        <div class="analogOpt"></div>
+        <div class="opt1"></div>
+        <div class="opt2"></div>
+        <div class="opt3"></div>
+        <div class="opt4"></div>
     </section>
     <div class="containerMain fullscreen">
         <div class="carouselMain">
@@ -195,6 +200,7 @@
             pages[i].style.transform = "rotateY(" + (i / 8 * 360).toString() + "deg) translateZ(" + distOut.toString() + "px)";
         }
     </script>
+    <script src="resources/script.js" defer="defer"></script>
 </body>
 
 </html>
