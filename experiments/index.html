@@ -2,251 +2,200 @@
 <html>
 
 <head>
-    <style>
-        body {
-            position: absolute;
-            width: 100vw;
-            height: 100vh;
-            top: 0;
-            left: 0;
-            text-align: center;
-            margin: 0;
-            background-color: black;
-        }
-        
-        .containerMain {
-            position: absolute;
-            top: 0;
-            left: 0;
-            perspective: 1000px;
-            width: 100vw;
-            height: 100vh;
-        }
-        
-        .carouselParent {
-            transition: transform 0.5s;
-        }
-        
-        .carousel, .carouselParent {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            transform-style: preserve-3d;
-            transform-origin: center;
-        }
-        
-        .page1 {
-            background-color: white;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-        }
-        
-        .carousel .page {
-            background-color: white;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-        }
-        
-        .container.left {
-            width: 200px;
-            height: 50px;
-            position: absolute;
-            top: 2px;
-            left: 11px;
-            perspective: 1000px;
-        }
-        
-        .container.right {
-            width: 200px;
-            height: 50px;
-            position: absolute;
-            top: 2px;
-            right: 11px;
-            perspective: 1000px;
-        }
-        
-        .block {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transition: transform 1s;
-            transform-style: preserve-3d;
-            -webkit-backface-visibility: visible;
-            backface-visibility: visible;
-        }
-        
-        .block figure {
-            margin: 0;
-            width: 200px;
-            height: 50px;
-            display: block;
-            position: absolute;
-            text-align: center;
-        }
-        
-        .block figure.top {
-            height: 200px;
-            transform: rotateX(90deg) translateZ(100px);
-            background-color: #b3b3b3;
-        }
-        
-        .block .front {
-            transform: rotateY( 0deg) translateZ(100px);
-            background-color: white;
-        }
-        
-        .block .right {
-            transform: rotateY( 90deg) translateZ(100px);
-        }
-        
-        .block .left {
-            transform: rotateY(-90deg) translateZ(100px);
-        }
-        
-        .toggleRotate {
-            text-align: center;
-            position: relative;
-            margin-top: 100px;
-            display: inline-block;
-            padding: 10px;
-            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-            font-size: 1.7em;
-            background-color: #CB3B27;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            box-shadow: 0 9px 0 #84261A;
-            max-width: 150px;
-            cursor: pointer;
-        }
-        
-        .toggleRotate:active {
-            box-shadow: 0 3px 0 rgba(110, 36, 3, 1), 0 3px 0 rgba(0, 0, 0, .7);
-            top: 6px;
-        }
-        .backArrow {
-            position: absolute;
-            height: 40px;
-            width: 40px;
-            left: 5px;
-            top: 5px;
-        }
-    </style>
-    <script>
-        function toggleRotate() {
-            console.log("Fired");
-            var elemLeft = document.querySelectorAll(".block.left");
-            var elemRight = document.querySelectorAll(".block.right");
-            if (elemLeft[0].style.transform == "rotateY(90deg)") {
-                function loopOut(i) {
-                    setTimeout(function () {
-                        elemLeft[i].style.transform = "rotateY(0deg)";
-                        elemRight[i].style.transform = "rotateY(0deg)";
-                        i--;
-                        if (i >= 0) {
-                            loopOut(i);
-                        }
-                    }, 150)
-                }
-                loopOut(elemLeft.length - 1)
-            } else {
-                function loopIn(i) {
-                    setTimeout(function () {
-                        elemLeft[i].style.transform = "rotateY(90deg)";
-                        elemRight[i].style.transform = "rotateY(-90deg)";
-                        i++;
-                        if (i < elemLeft.length) {
-                            loopIn(i);
-                        }
-                    }, 150)
-                }
-                loopIn(0)
-            }
-        };
-
-        function rotateTo(degrees) {
-            var distOut = (window.innerWidth + Math.sqrt(2) * window.innerWidth) / 2;
-            var carousel = document.querySelector(".carousel"),
-                carouselParent = document.querySelector(".carouselParent");
-            var rot = "0";
-            carouselParent.style.transform = "translateZ(-500px)";
-            console.log(distOut);
-            console.log(carousel);
-            console.log(carouselParent);
-            setTimeout(function () {
-                document.querySelector(".carousel").style.transform = "translateZ(-" + distOut.toString() + "px) rotateY(" + degrees.toString() + "deg)";
-            }, 500);
-            setTimeout(function () {
-                console.log("Stage 2");
-                carouselParent.style.transform = "translateZ(0)";
-                console.log("Complete");
-            }, 1000);
-        }
-    </script>
+    <script src="script.js"></script>
+    <link type="text/css" href="style.css" rel="stylesheet" />
 </head>
 
 <body>
-    <div class="containerMain">
-        <div class="carouselParent">
+    <svg width="25" height="17" viewbox="0 0 25 17" class="menuButton" onclick="menuScale()">
+        <style>
+            rect {
+                transition: fill 1s;
+            }
+        </style>
+        <rect x="0" y="0" rx="1.5" ry="1.5" width="22" height="3" style="fill: #000000" />
+        <rect x="0" y="7" rx="1.5" ry="1.5" width="22" height="3" style="fill: #000000" />
+        <rect x="0" y="14" rx="1.5" ry="1.5" width="22" height="3" style="fill: #000000" />
+    </svg>
+    <section class="settingsPage">
+        <p>Settings</p>
+        <p>Background colour:</p>
+        <p>Foreground colour:</p>
+    </section>
+    <div class="containerMain fullscreen">
+        <div class="carouselMain">
             <div class="carousel">
-                <div class="page page1">
-                    <div class="container left">
+                <section class="page page1 homePage fullscreen">
+                    <section data-page="0" class="fullscreen timePage" style="">
+                        <!-- TODO: Rebuild with JavaScript instead of explicit -->
+                        <svg viewbox="0 0 1000 1000" class="clockBox">
+                            <g class="analog analogMinute">
+                                <line x1="500" y1="500" x2="500" y2="45" style="stroke-width:4;stroke:rgb(0,0,0)" />
+                                <path d="M465 9 A491 491 0 1 0 535 9 v10 A481 481 0 1 1 465 19 Z" style="fill:white;" />
+                            </g>
+                            <g class="analogSecondMarkers">
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                                <circle cx="500" cy="5" r="3" />
+                            </g>
+                            <g class="analogHourMarkers">
+                                <g>
+                                    <circle cx="495" cy="20" r="4" />
+                                    <circle cx="485" cy="20" r="4" />
+                                    <circle cx="475" cy="20" r="4" />
+                                    <circle cx="505" cy="20" r="4" />
+                                    <circle cx="515" cy="20" r="4" />
+                                    <circle cx="525" cy="20" r="4" />
+                                    <circle cx="495" cy="40" r="4" />
+                                    <circle cx="485" cy="40" r="4" />
+                                    <circle cx="475" cy="40" r="4" />
+                                    <circle cx="505" cy="40" r="4" />
+                                    <circle cx="515" cy="40" r="4" />
+                                    <circle cx="525" cy="40" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="500" cy="30" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="495" cy="30" r="4" />
+                                    <circle cx="505" cy="30" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="490" cy="30" r="4" />
+                                    <circle cx="500" cy="30" r="4" />
+                                    <circle cx="510" cy="30" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="495" cy="30" r="4" />
+                                    <circle cx="485" cy="30" r="4" />
+                                    <circle cx="505" cy="30" r="4" />
+                                    <circle cx="515" cy="30" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="480" cy="30" r="4" />
+                                    <circle cx="490" cy="30" r="4" />
+                                    <circle cx="500" cy="30" r="4" />
+                                    <circle cx="510" cy="30" r="4" />
+                                    <circle cx="520" cy="30" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="495" cy="30" r="4" />
+                                    <circle cx="485" cy="30" r="4" />
+                                    <circle cx="475" cy="30" r="4" />
+                                    <circle cx="505" cy="30" r="4" />
+                                    <circle cx="515" cy="30" r="4" />
+                                    <circle cx="525" cy="30" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="495" cy="20" r="4" />
+                                    <circle cx="485" cy="20" r="4" />
+                                    <circle cx="475" cy="20" r="4" />
+                                    <circle cx="505" cy="20" r="4" />
+                                    <circle cx="515" cy="20" r="4" />
+                                    <circle cx="525" cy="20" r="4" />
+                                    <circle cx="500" cy="40" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="495" cy="20" r="4" />
+                                    <circle cx="485" cy="20" r="4" />
+                                    <circle cx="475" cy="20" r="4" />
+                                    <circle cx="505" cy="20" r="4" />
+                                    <circle cx="515" cy="20" r="4" />
+                                    <circle cx="525" cy="20" r="4" />
+                                    <circle cx="495" cy="40" r="4" />
+                                    <circle cx="505" cy="40" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="495" cy="20" r="4" />
+                                    <circle cx="485" cy="20" r="4" />
+                                    <circle cx="475" cy="20" r="4" />
+                                    <circle cx="505" cy="20" r="4" />
+                                    <circle cx="515" cy="20" r="4" />
+                                    <circle cx="525" cy="20" r="4" />
+                                    <circle cx="490" cy="40" r="4" />
+                                    <circle cx="500" cy="40" r="4" />
+                                    <circle cx="510" cy="40" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="495" cy="20" r="4" />
+                                    <circle cx="485" cy="20" r="4" />
+                                    <circle cx="475" cy="20" r="4" />
+                                    <circle cx="505" cy="20" r="4" />
+                                    <circle cx="515" cy="20" r="4" />
+                                    <circle cx="525" cy="20" r="4" />
+                                    <circle cx="495" cy="40" r="4" />
+                                    <circle cx="485" cy="40" r="4" />
+                                    <circle cx="505" cy="40" r="4" />
+                                    <circle cx="515" cy="40" r="4" />
+                                </g>
+                                <g>
+                                    <circle cx="495" cy="20" r="4" />
+                                    <circle cx="485" cy="20" r="4" />
+                                    <circle cx="475" cy="20" r="4" />
+                                    <circle cx="505" cy="20" r="4" />
+                                    <circle cx="515" cy="20" r="4" />
+                                    <circle cx="525" cy="20" r="4" />
+                                    <circle cx="480" cy="40" r="4" />
+                                    <circle cx="490" cy="40" r="4" />
+                                    <circle cx="500" cy="40" r="4" />
+                                    <circle cx="510" cy="40" r="4" />
+                                    <circle cx="520" cy="40" r="4" />
+                                </g>
+                            </g>
+                            <g class="analog analogHour">
+                                <line x1="500" y1="500" x2="500" y2="140" style="stroke-width:4;stroke:rgb(0,0,0)" />
+                                <path d="M465 9 A491 491 0 1 0 535 9 v40 A452 452 0 1 1 465 49 Z" style="fill:white;" />
+                            </g>
+                            <g class="analog analogSecond">
+                                <line x1="500" y1="600" x2="500" y2="45" style="stroke-width:2;stroke:rgb(0,0,0)" />
+                                <path d="M465 0 A500 500 0 1 0 535 0 v10 A490 490 0 1 1 465 10 Z" style="fill:white;" />
+                            </g>
+                        </svg>
+                    </section>
+                    <section data-page="1" class="fullscreen weatherPage" style="">
+                        <p>Content!</p>
+                    </section>
+                    <section data-page="2" class="fullscreen thirdPage" style="">
+                        <p>Content!</p>
+                    </section>
+                </section>
+                <section class="page page2 fullscreen timePage">
+                    <div class="timed" data-index="0">
+                        <span class="center time">
+                    <span class="hours">12</span>
+                        <span class="minutes">34</span>
+                        <span class="seconds">56</span>
+                        </span>
+                        <p class="center date">Sunday, December 25</p>
                     </div>
-                    <div class="container right">
-                    </div>
-                    <a class="toggleRotate">Open/Close</a>
-                </div>
+                </section>
+                <section class="page"></section>
+                <section class="page"></section>
+                <section class="page"></section>
+                <section class="page"></section>
+                <section class="page"></section>
+                <section class="page"></section>
             </div>
         </div>
     </div>
-    <script src="pages.js"></script>
     <script>
-        var colours = ['8e44ad', '9b59b6', '3498db', '1abc9c', '2ecc71', 'f1c40f', 'f39c12', 'e67e22', 'e74c3c', 'c0392b', 'bdc3c7'];
-        var leftContainer = document.querySelector(".container.left"),
-            rightContainer = document.querySelector(".container.right");
-        for (var i = 0; i < 10; i++) {
-            leftContainer.innerHTML += '<span class="block left" style="top:' + (i * 49).toString() + 'px;z-index:-' + i.toString() + ';"><figure class="top"></figure><figure class="front"></figure><figure class="left" style="background-color:#' + colours[i] + ';"></figure></span>';
-            rightContainer.innerHTML += '<span class="block right" style="top:' + (i * 49).toString() + 'px;z-index:-' + i.toString() + ';"><figure class="top"></figure><figure class="front"></figure><figure class="right" style="background-color:#' + colours[i] + ';"></figure></span>';
-        }
-        var distOut = (window.innerWidth + Math.sqrt(2) * window.innerWidth) / 2;
-        var carousel = document.querySelector(".carousel");
+        var distOut = (window.innerWidth + Math.sqrt(2) * window.innerWidth) / 2,
+            carousel = document.querySelector(".carousel"),
+            pages = document.querySelectorAll('.page');
         carousel.style.transform = "translateZ(-" + distOut.toString() + "px)";
-        for (var i = 1; i < 8; i++) {
-            carousel.innerHTML += '<div class="page page' + i.toString() + '" style="transform:rotateY(' + (i / 8 * 360).toString() + 'deg) translateZ(' + (distOut).toString() + 'px)">' + pages[i] + '</div>';
-        }
-        document.querySelector(".page.page1").style.transform = "rotateY(0deg) translateZ(" + distOut.toString() + "px)";
-        carousel.style.transition = "transform 0.5s";
-        document.getElementsByClassName("toggleRotate")[0].addEventListener("click", function() {
-            toggleRotate();
-        });
-        document.querySelectorAll(".container.left figure.left")[0].addEventListener("click", function() {
-            console.log("Fired click");
-            rotateTo(-45);
-        });
-        var arrows = document.querySelectorAll(".backArrow");
-        for (var i = 0; i < arrows.length; i++) {
-            arrows[i].addEventListener("click", function() {
-                rotateTo(0);
-            });
+        for (var i = 0; i < 8; i++) {
+            pages[i].style.transform = "rotateY(" + (i * 45).toString() + "deg) translateZ(" + distOut.toString() + 'px)';
         }
     </script>
 </body>
 
 </html>
-
-<!--
-
-IDEAS
-
-'Carousel' of different pages, navigated to from 'gate' page (Highlight option and transitions)
-Bubbles page, where colours pop randomly or at mouse cursor
-
--->
