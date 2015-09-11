@@ -7,6 +7,32 @@
 </head>
 
 <body>
+    <section class="tileContainer">
+        <div class="tile"></div>
+        <div class="rightBlocks">
+            <section>
+                <div class="tile"></div>
+            </section>
+            <section>
+                <div class="tile"></div>
+            </section>
+            <section>
+                <div class="tile"></div>
+            </section>
+            <section>
+                <div class="tile"></div>
+            </section>
+            <section>
+                <div class="tile"></div>
+            </section>
+            <section>
+                <div class="tile"></div>
+            </section>
+            <section>
+                <div class="tile"></div>
+            </section>
+        </div>
+    </section>
     <svg width="25" height="17" viewbox="0 0 25 17" class="menuButton" onclick="menuScale()">
         <style>
             rect {
@@ -161,12 +187,6 @@
                             </g>
                         </svg>
                     </section>
-                    <section data-page="1" class="fullscreen weatherPage" style="">
-                        <p>Content!</p>
-                    </section>
-                    <section data-page="2" class="fullscreen thirdPage" style="">
-                        <p>Content!</p>
-                    </section>
                 </section>
                 <section class="page page2 fullscreen timePage">
                     <div class="timed" data-index="0">
@@ -187,31 +207,57 @@
             </div>
         </div>
     </div>
-    <div class="test"></div>
     <script>
         var distOut = 0;
+
         function octagon() {
             distOut = (window.innerWidth + Math.sqrt(2) * window.innerWidth) / 2;
             var carousel = document.querySelector(".carousel"),
                 pages = document.querySelectorAll('.page');
             carousel.style.transform = "translateZ(-" + distOut.toString() + "px)";
+            carousel.style['-webkit-transform'] = "translateZ(-" + distOut.toString() + "px)";
+            carousel.style['-moz-transform'] = "translateZ(-" + distOut.toString() + "px)";
+            carousel.style['-ms-transform'] = "translateZ(-" + distOut.toString() + "px)";
+            carousel.style['-o-transform'] = "translateZ(-" + distOut.toString() + "px)";
             for (var i = 0; i < 8; i++) {
-                pages[i].style.transform = "rotateY(" + (i * 45).toString() + "deg) translateZ(" + distOut.toString() + 'px)';
+                var transform = "rotateY(" + (i * 45).toString() + "deg) translateZ(" + distOut.toString() + 'px)';
+                pages[i].style.transform = transform;
+                pages[i].style['-webkit-transform'] = transform;
+                pages[i].style['-moz-transform'] = transform;
+                pages[i].style['-ms-transform'] = transform;
+                pages[i].style['-o-transform'] = transform;
             }
         }
+
         function tile() {
             var bz = window.innerWidth,
                 ax = window.innerWidth / 2,
                 z = 1.5 * -window.innerWidth,
                 az = bz + z * -1,
-                bx = ax * bz / az;
+                bx = ax * bz / az,
+                tiles = document.querySelectorAll(".tile"),
+                width = window.innerWidth - bx - (bx / 4 - 3),
+                sections = document.querySelectorAll(".rightBlocks section");
             print(bx.toString() + "px");
-            document.querySelector(".test").style.width = bx.toString() + "px";
+            document.querySelector(".tileContainer").style.width = width.toString() + "px";
+            document.querySelector(".tileContainer").style.left = bx.toString() + "px";
+            if ((window.innerHeight / 5) > (width / 8 - 10)) {
+                document.querySelector(".rightBlocks").style.margin = "-20vh 0 0 " + (width / 8 - 10).toString() + "px";
+            } else {
+                document.querySelector(".rightBlocks").style.margin = "-20vh 0 0 20vh";
+            }
+            for (var i = 0; i < tiles.length; i++) {
+                tiles[i].style.maxWidth = (width / 8 - 10).toString() + "px";
+            }
             print(bx);
         }
+        for (var i = 0, tiles = document.querySelectorAll('.tile'), colours = ['#1abc9c', '#2ecc71', '#3498db', '#9b59b6', '#f1c40f', '#e67e22', '#e74c3c', '#ecf0f1']; i < tiles.length; i++) {
+            tiles[i].style.backgroundColor = colours[i];
+        }
         window.addEventListener('resize', octagon);
+        window.addEventListener('resize', tile);
         octagon();
-        //tile();
+        tile();
     </script>
 </body>
 

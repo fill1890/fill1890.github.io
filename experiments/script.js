@@ -324,23 +324,19 @@ function toggleCss(params, select, delay) {
 }
 
 function menuScale() {
-    print("Move");3
-    var shiftUp = new Array(
-            'transform:translate(0px, -100%):translate(0,0)'
-        ),
-        shiftUp2 = new Array(
-            'transform:translate(0px, -200%):translate(0,0)'
-        ),
-        shiftAway = new Array(
+    print("Move");
+    var shiftAway = new Array(
             'transform:translate3d(25%, 0px, -150vw):translate3d(0,0,0)'
         ),
         changeColor = new Array(
             'fill:#ffffff:#000000'
         ),
-        overflow = new Array('overflow:hidden:visible');
+        overflow = new Array('overflow:hidden:visible'),
+        scale = new Array(
+            'transform:scale(1, 1):scale(0, 0)'
+        )
     toggleCss(shiftAway, '.carouselMain');
-    toggleCss(shiftUp, '.weatherPage');
-    toggleCss(shiftUp2, '.thirdPage');
     toggleCss(changeColor, '.menuButton rect');
+    toggleCss(scale, '.tile', 50);
     return;
 }

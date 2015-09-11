@@ -136,14 +136,6 @@ body {
 .analogHourMarkers g {
     transform-origin: 500px 500px 0;
 }
-.weatherPage {
-    background-color: darkgreen;
-}
-
-.thirdPage {
-    background-color: deepskyblue;
-}
-
 .settingsPage {
     margin-top: 30px;
     color: white;
@@ -156,11 +148,32 @@ body {
     transform-style: preserve-3d;
 }
 
-
-
-.test {
-    position: absolute;
-    height: 10vh;
-    top: 45vh;
+.tile {
+    height: 20vh;
+    width: 20vh;
     background-color: blue;
+    display: block;
+    transform: scale(0,0);
+    transition: transform 0.4s cubic-bezier(.49,.25,.02,1.4);
+}
+
+.rightBlocks {
+    display: block;
+    margin: -20vh 0 0 20vh;
+}
+
+.rightBlocks section {
+    width: 14.286%;
+    height: 20vh;
+    float: left;
+}
+
+.rightBlocks section div {
+    float: right;
+}
+
+.tileContainer {
+    position: absolute;
+    top: 4.5vh;
+    height: 20vh;
 }
