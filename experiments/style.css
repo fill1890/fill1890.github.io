@@ -21,7 +21,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    perspective: 1000px;
+    perspective: 100vw;
     width: 100vw;
     height: 100vh;
 }
@@ -154,4 +154,13 @@ body {
 .carouselMain {
     transition: transform 1s;
     transform-style: preserve-3d;
+}
+
+
+
+.test {
+    position: absolute;
+    height: 10vh;
+    top: 45vh;
+    background-color: blue;
 }

@@ -23,7 +23,7 @@
         <p>Foreground colour:</p>
     </section>
     <div class="containerMain fullscreen">
-        <div class="carouselMain">
+        <div class="carouselMain fullscreen">
             <div class="carousel">
                 <section class="page page1 homePage fullscreen">
                     <section data-page="0" class="fullscreen timePage" style="">
@@ -187,14 +187,31 @@
             </div>
         </div>
     </div>
+    <div class="test"></div>
     <script>
-        var distOut = (window.innerWidth + Math.sqrt(2) * window.innerWidth) / 2,
-            carousel = document.querySelector(".carousel"),
-            pages = document.querySelectorAll('.page');
-        carousel.style.transform = "translateZ(-" + distOut.toString() + "px)";
-        for (var i = 0; i < 8; i++) {
-            pages[i].style.transform = "rotateY(" + (i * 45).toString() + "deg) translateZ(" + distOut.toString() + 'px)';
+        var distOut = 0;
+        function octagon() {
+            distOut = (window.innerWidth + Math.sqrt(2) * window.innerWidth) / 2;
+            var carousel = document.querySelector(".carousel"),
+                pages = document.querySelectorAll('.page');
+            carousel.style.transform = "translateZ(-" + distOut.toString() + "px)";
+            for (var i = 0; i < 8; i++) {
+                pages[i].style.transform = "rotateY(" + (i * 45).toString() + "deg) translateZ(" + distOut.toString() + 'px)';
+            }
         }
+        function tile() {
+            var bz = window.innerWidth,
+                ax = window.innerWidth / 2,
+                z = 1.5 * -window.innerWidth,
+                az = bz + z * -1,
+                bx = ax * bz / az;
+            print(bx.toString() + "px");
+            document.querySelector(".test").style.width = bx.toString() + "px";
+            print(bx);
+        }
+        window.addEventListener('resize', octagon);
+        octagon();
+        //tile();
     </script>
 </body>
 

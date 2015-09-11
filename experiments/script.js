@@ -198,9 +198,14 @@ function date() {
 (function () {
     var Library = function (selector) {
             // Set selection to specified selector
+            if (selector != null) {
             var select = document.querySelectorAll(selector);
             this.elem = select[0];
             this.elems = select;
+            } else {
+                this.elem = null;
+                this.elems = null;
+            }
             this.version = '0.0.5';
             return this;
 
@@ -225,8 +230,8 @@ function date() {
             var i = 0,
                 prefixes = ['-webkit-', '-moz-', '-ms-', '-o-', ''],
                 required = ['transform', 'transform-origin', 'transition'];
-            value = value || false;
-            if (value !== false) {
+            value = value || '';
+            if (value !== '') {
                 var newProps = [],
                     newVals = [],
                     newPropReq = false,
@@ -295,9 +300,13 @@ function toggleCss(params, select, delay) {
                 currentStyle = selectedElems[j].getAttribute('style') || "",
                 stylePos = currentStyle.indexOf(props[1]);
             if (stylePos < 0) {
-                selectedElems[j].style[props[0]] = props[1];
+                elem = $(null);
+                elem.elem = selectedElems[j];
+                elem.css(props[0], props[1])
             } else {
-                selectedElems[j].style[props[0]] = props[2];
+                elem = $(null);
+                elem.elem = selectedElems[j];
+                elem.css(props[0], props[2])
             }
             if (j < selectedElems.length - 1) {
                 setTimeout(function () {
@@ -315,7 +324,7 @@ function toggleCss(params, select, delay) {
 }
 
 function menuScale() {
-    print("Move");
+    print("Move");3
     var shiftUp = new Array(
             'transform:translate(0px, -100%):translate(0,0)'
         ),
@@ -323,7 +332,7 @@ function menuScale() {
             'transform:translate(0px, -200%):translate(0,0)'
         ),
         shiftAway = new Array(
-            'transform:translate3d(25%, 0px, -1000px):translate3d(0,0,0)'
+            'transform:translate3d(25%, 0px, -150vw):translate3d(0,0,0)'
         ),
         changeColor = new Array(
             'fill:#ffffff:#000000'
