@@ -2,34 +2,33 @@
 <html>
 
 <head>
-    <script src="script.js"></script>
     <link type="text/css" href="style.css" rel="stylesheet" />
 </head>
 
 <body>
     <section class="tileContainer">
-        <div class="tile"></div>
+        <div class="tile" data-rotate="315"></div>
         <div class="rightBlocks">
             <section>
-                <div class="tile"></div>
+                <div class="tile" data-rotate="270"></div>
             </section>
             <section>
-                <div class="tile"></div>
+                <div class="tile" data-rotate="225"></div>
             </section>
             <section>
-                <div class="tile"></div>
+                <div class="tile" data-rotate="0"></div>
             </section>
             <section>
-                <div class="tile"></div>
+                <div class="tile" data-rotate="45"></div>
             </section>
             <section>
-                <div class="tile"></div>
+                <div class="tile" data-rotate="90"></div>
             </section>
             <section>
-                <div class="tile"></div>
+                <div class="tile" data-rotate="135"></div>
             </section>
             <section>
-                <div class="tile"></div>
+                <div class="tile" data-rotate="180"></div>
             </section>
         </div>
     </section>
@@ -227,6 +226,11 @@
                 pages[i].style['-ms-transform'] = transform;
                 pages[i].style['-o-transform'] = transform;
             }
+            carousel.style.transition = "transform 0.8s";
+            carousel.style['-webkit-transition'] = "transform 0.8s";
+            carousel.style['-moz-transition'] = "transform 0.8s";
+            carousel.style['-ms-transition'] = "transform 0.8s";
+            carousel.style['-o-transition'] = "transform 0.8s";
         }
 
         function tile() {
@@ -238,7 +242,6 @@
                 tiles = document.querySelectorAll(".tile"),
                 width = window.innerWidth - bx - (bx / 4 - 3),
                 sections = document.querySelectorAll(".rightBlocks section");
-            print(bx.toString() + "px");
             document.querySelector(".tileContainer").style.width = width.toString() + "px";
             document.querySelector(".tileContainer").style.left = bx.toString() + "px";
             if ((window.innerHeight / 5) > (width / 8 - 10)) {
@@ -249,7 +252,6 @@
             for (var i = 0; i < tiles.length; i++) {
                 tiles[i].style.maxWidth = (width / 8 - 10).toString() + "px";
             }
-            print(bx);
         }
         for (var i = 0, tiles = document.querySelectorAll('.tile'), colours = ['#1abc9c', '#2ecc71', '#3498db', '#9b59b6', '#f1c40f', '#e67e22', '#e74c3c', '#ecf0f1']; i < tiles.length; i++) {
             tiles[i].style.backgroundColor = colours[i];
@@ -259,6 +261,7 @@
         octagon();
         tile();
     </script>
+    <script src="script.js" defer="defer"></script>
 </body>
 
 </html>

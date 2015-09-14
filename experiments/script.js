@@ -5,10 +5,10 @@ var day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Sa
     pos = 0,
     scroll = 0,
     select = '',
-    scroll2 = 0;
+    scroll2 = 0,
+    carouselRotate = 0;
 
 function toggleRotate() {
-    console.log("Fired");
     var elemLeft = document.querySelectorAll(".block.left");
     var elemRight = document.querySelectorAll(".block.right");
     if (elemLeft[0].style.transform == "rotateY(90deg)") {
@@ -44,16 +44,11 @@ function rotateTo(degrees) {
         carouselParent = document.querySelector(".carouselParent");
     var rot = "0";
     carouselParent.style.transform = "translateZ(-500px)";
-    console.log(distOut);
-    console.log(carousel);
-    console.log(carouselParent);
     setTimeout(function () {
         document.querySelector(".carousel").style.transform = "translateZ(-" + distOut.toString() + "px) rotateY(" + degrees.toString() + "deg)";
     }, 500);
     setTimeout(function () {
-        console.log("Stage 2");
         carouselParent.style.transform = "translateZ(0)";
-        console.log("Complete");
     }, 1000);
 }
 
@@ -199,9 +194,9 @@ function date() {
     var Library = function (selector) {
             // Set selection to specified selector
             if (selector != null) {
-            var select = document.querySelectorAll(selector);
-            this.elem = select[0];
-            this.elems = select;
+                var select = document.querySelectorAll(selector);
+                this.elem = select[0];
+                this.elems = select;
             } else {
                 this.elem = null;
                 this.elems = null;
@@ -284,6 +279,25 @@ function date() {
 })();
 
 (function () {
+    tiles = document.querySelectorAll('.tile');
+    pages = document.querySelectorAll('.page');
+    for (var i = 0; i < tiles.length; i++) {
+        tiles[i].addEventListener('click', function (e) {
+            e = e || window.event;
+            var target = e.target || e.srcElement,
+                rotate = target.getAttribute("data-rotate");
+            rotateCarousel(rotate);
+        });
+        pages[i].addEventListener('click', function (e) {
+            e = e || window.event;
+            var target = e.target || e.srcElement,
+                style = target.getAttribute("style"),
+                transform = style.substring(style.indexOf('transform:'), style.length);
+            transform = transform.substring(0, transform.indexOf(";"))
+            var rotate = transform.substring(transform.indexOf('rotateY(') + 8, transform.indexOf('deg)'));
+            rotateCarousel(rotate);
+        });
+    }
     setTimeout(function () {
         analogBegin();
         time();
@@ -294,6 +308,7 @@ function date() {
 function toggleCss(params, select, delay) {
     delay = delay || 0;
     var selectedElems = document.querySelectorAll(select);
+
     function toggle(j, selectedElems) {
         for (var i = 0; i < params.length; i++) {
             var props = params[i].split(":"),
@@ -324,7 +339,6 @@ function toggleCss(params, select, delay) {
 }
 
 function menuScale() {
-    print("Move");
     var shiftAway = new Array(
             'transform:translate3d(25%, 0px, -150vw):translate3d(0,0,0)'
         ),
@@ -337,6 +351,45 @@ function menuScale() {
         )
     toggleCss(shiftAway, '.carouselMain');
     toggleCss(changeColor, '.menuButton rect');
-    toggleCss(scale, '.tile', 50);
+    toggleCss(scale, '.tileContainer');
     return;
+}
+
+function rotateCarousel(deg) {
+    var distOut = (window.innerWidth + Math.sqrt(2) * window.innerWidth) / 2;
+    deg = sanitizeDeg(parseInt(deg));
+    if (Math.abs(carouselRotate - deg) > 180) {
+        var oldTransition = $('.carousel').css('transition'),
+            rotateOne = carouselRotate - 360,
+            rotateTwo = carouselRotate + 360,
+            newRotate = Math.abs(rotateOne - deg) < Math.abs(rotateTwo - deg) ? rotateOne : rotateTwo;
+        $('.carousel').css('transition', 'all 0s');
+        setTimeout(function() {
+        $('.carousel').css('transform', 'translateZ(-' + distOut + 'px) rotateY(' + newRotate.toString() + 'deg)')
+        }, 5);
+        setTimeout(function() {
+            $('.carousel').css('transition', oldTransition);
+        }, 10)
+    }
+    carouselRotate = deg;
+    setTimeout(function () {
+        $('.carousel').css('transform', 'translateZ(-' + distOut + 'px) rotateY(' + deg.toString() + 'deg)');
+    }, 15);
+}
+
+function sanitizeDeg(deg) {
+    var pairs = {
+        0: 0,
+        45: 315,
+        90: 270,
+        135: 225,
+        180: 180,
+        225: 135,
+        270: 90,
+        315: 45,
+        360: 360
+    }
+    console.log(deg);
+    console.log(pairs[deg]);
+    return pairs[deg];
 }
